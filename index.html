@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Code-to-MP4 Studio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#121a2c;--panel2:#0e1525;--line:#26334b;--text:#eef3ff;--muted:#9aa9c3;--accent:#8b9cff;--green:#69dfb1}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1a2750 0,transparent 38%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-rows:64px 1fr}.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--line);background:#0b1020dd;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:750;font-size:16px}.logo{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#8796ff,#b08cff);color:#10152a;font-weight:900}.top-actions{display:flex;gap:10px;align-items:center}.pill{color:var(--green);border:1px solid #285848;border-radius:999px;padding:5px 10px;font-size:12px}.btn{border:1px solid var(--line);border-radius:9px;padding:10px 14px;background:#182239;color:var(--text);font-weight:650}.btn.primary{background:var(--accent);color:#0b1020;border-color:transparent}.btn:disabled{opacity:.45;cursor:not-allowed}.layout{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;min-height:calc(100vh - 64px)}aside,.settings{padding:20px;border-right:1px solid var(--line)}.settings{border-right:0;border-left:1px solid var(--line);background:#0e1525aa}.eyebrow{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:750;margin:8px 0 12px}.navitem{padding:11px 12px;border-radius:9px;color:var(--muted);margin:4px 0}.navitem.active{background:#202b46;color:var(--text);border:1px solid #35466a}.small{font-size:12px;color:var(--muted)}.project{margin-top:24px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel2)}.project strong{display:block;margin-bottom:5px}.main{padding:24px;min-width:0}.heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}.heading h1{font-size:24px;letter-spacing:-.04em;margin:0 0 6px}.preview{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#080d18}.preview-head{display:flex;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}.stage{aspect-ratio:16/9;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 78%,#1d2b4d,transparent 45%),linear-gradient(145deg,#0a1121,#111c35 60%,#090e19)}.stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#7388b40b 1px,transparent 1px),linear-gradient(90deg,#7388b40b 1px,transparent 1px);background-size:32px 32px}.orb{width:min(28%,190px);aspect-ratio:1;border-radius:50%;position:relative;background:radial-gradient(circle at 32% 25%,#d3e5ff 0,#759dff 12%,#2f61c7 35%,#102c68 67%,#070f29 100%);box-shadow:inset -18px -22px 40px #020817aa,inset 8px 8px 24px #ffffff55,0 28px 65px #477dff44;animation:float 4s ease-in-out infinite}.orb:after{content:"";position:absolute;inset:7% 10% auto 12%;height:28%;border-radius:50%;background:linear-gradient(#fff9,transparent);filter:blur(8px);transform:rotate(-30deg)}@keyframes float{50%{transform:translateY(-10px)}}.stage-label{position:absolute;bottom:16px;left:18px;color:#aab9d5;font-size:12px}.preview-foot{display:flex;justify-content:space-between;padding:12px 16px;color:var(--muted);font-size:12px}.section{margin-top:22px}.section h2{font-size:14px;margin:0 0 12px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.card strong{display:block;margin-bottom:4px}.field{margin-bottom:16px}.field label{display:flex;justify-content:space-between;gap:8px;margin-bottom:7px;font-weight:650;font-size:12px}.field input,.field select,.field textarea{width:100%;background:#0a1120;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}.field textarea{min-height:96px;resize:vertical}.notice{margin-top:16px;padding:12px;border:1px solid #574a2b;background:#2b2417;color:#e9d6a6;border-radius:10px;font-size:12px}.status{min-height:22px;margin-top:10px;color:var(--green);font-size:12px}.bottom{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}.footer-note{margin-top:22px;color:var(--muted);font-size:11px}
+    @media(max-width:1050px){.layout{grid-template-columns:190px minmax(0,1fr)}.settings{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.settings .eyebrow,.settings h2,.settings .notice,.settings .status{grid-column:1/-1}}
+    @media(max-width:650px){.topbar{padding:0 14px}.brand{font-size:14px}.pill{display:none}.layout{display:block}aside{display:none}.main{padding:16px}.settings{display:block;padding:16px}.heading h1{font-size:21px}.cards{grid-template-columns:1fr}.top-actions .btn{padding:8px 10px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">C</div><div>Code-to-MP4 Studio <div class="small">Creative render workspace</div></div></div>
+    <div class="top-actions"><span class="pill">Frontend preview</span><button class="btn" id="saveTop">Save settings</button></div>
+  </header>
+  <div class="layout">
+    <aside>
+      <div class="eyebrow">Workspace</div>
+      <div class="navitem active">◈ &nbsp; Studio</div><div class="navitem">▧ &nbsp; Projects</div><div class="navitem">◷ &nbsp; Render queue</div><div class="navitem">⇩ &nbsp; Exports</div>
+      <div class="eyebrow" style="margin-top:30px">Current project</div>
+      <div class="project"><strong id="sideName">Blue Sphere Loop</strong><div class="small">3D motion · 16:9</div><div class="small" style="margin-top:10px">Status: <span style="color:var(--green)">Ready to configure</span></div></div>
+      <div class="footer-note">v0.1.0 · Free starter interface</div>
+    </aside>
+    <main class="main">
+      <div class="heading"><div><h1>Studio workspace</h1><div class="small">Configure your scene and prepare a stock-ready video export.</div></div><button class="btn primary" id="renderBtn">▶ &nbsp; Render MP4</button></div>
+      <section class="preview">
+        <div class="preview-head"><strong>Live preview</strong><span class="small">Animated placeholder · 16:9</span></div>
+        <div class="stage"><div class="orb"></div><div class="stage-label">SCENE 01 / BLUE SPHERE</div></div>
+        <div class="preview-foot"><span>Preview is illustrative</span><span>1920 × 1080 target</span></div>
+      </section>
+      <section class="section"><h2>Quick settings</h2><div class="cards">
+        <div class="card"><strong>Image engine</strong><div class="small">PNG / JPEG stills</div></div>
+        <div class="card"><strong>Video engine</strong><div class="small">MP4 · H.264 target</div></div>
+        <div class="card"><strong>3D renderer</strong><div class="small">Blender worker required</div></div>
+      </div></section>
+      <div class="bottom"><button class="btn" id="exportSettings">Export settings JSON</button><button class="btn" id="resetBtn">Reset defaults</button></div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </main>
+    <section class="settings">
+      <div class="eyebrow">Control center</div><h2>Render configuration</h2>
+      <div class="field"><label for="projectName">Project name</label><input id="projectName" value="Blue Sphere Loop" maxlength="80" /></div>
+      <div class="field"><label for="engine">Render engine</label><select id="engine"><option>Blender 3D</option><option>Python / Pillow</option><option>SVG / Canvas</option></select></div>
+      <div class="field"><label for="resolution">Resolution</label><select id="resolution"><option value="1920x1080">1920 × 1080 (Full HD)</option><option value="3840x2160">3840 × 2160 (4K)</option><option value="1280x720">1280 × 720 (HD preview)</option></select></div>
+      <div class="field"><label for="fps">Frame rate</label><select id="fps"><option value="24">24 FPS</option><option value="25">25 FPS</option><option value="30" selected>30 FPS</option><option value="60">60 FPS</option></select></div>
+      <div class="field"><label for="duration">Duration (seconds)</label><input id="duration" type="number" min="1" max="60" value="8" /></div>
+      <div class="field"><label for="format">Output format</label><select id="format"><option value="mp4">MP4 · H.264</option><option value="png">PNG sequence</option><option value="jpeg">JPEG still</option></select></div>
+      <div class="field"><label for="notes">Scene / code notes</label><textarea id="notes" placeholder="Describe your scene or paste a short production note...">Slow floating metallic blue sphere, clean studio lighting, seamless dark background.</textarea></div>
+      <button class="btn primary" style="width:100%" id="saveBtn">Save configuration</button>
+      <div class="notice">Rendering is not connected yet. A separate background worker/API must be added before MP4 jobs can run. This page does not claim a render has started.</div>
+    </section>
+  </div>
+</div>
+<script>
+const ids=['projectName','engine','resolution','fps','duration','format','notes'];
+const defaults={projectName:'Blue Sphere Loop',engine:'Blender 3D',resolution:'1920x1080',fps:'30',duration:'8',format:'mp4',notes:'Slow floating metallic blue sphere, clean studio lighting, seamless dark background.'};
+const statusEl=document.getElementById('status');
+function getSettings(){const o={};ids.forEach(id=>o[id]=document.getElementById(id).value);return o}
+function setSettings(o){ids.forEach(id=>{if(o[id]!==undefined)document.getElementById(id).value=o[id]});document.getElementById('sideName').textContent=document.getElementById('projectName').value||'Untitled project'}
+function save(){const s=getSettings();s.duration=String(Math.max(1,Math.min(60,Number(s.duration)||8)));document.getElementById('duration').value=s.duration;localStorage.setItem('codeToMp4StudioSettings',JSON.stringify(s));setSettings(s);statusEl.textContent='Settings saved in this browser.'}
+document.getElementById('saveBtn').addEventListener('click',save);document.getElementById('saveTop').addEventListener('click',save);
+document.getElementById('renderBtn').addEventListener('click',()=>{statusEl.textContent='Render worker not connected yet. Your settings are ready, but no MP4 job was submitted.'});
+document.getElementById('resetBtn').addEventListener('click',()=>{setSettings(defaults);statusEl.textContent='Defaults restored. Click Save configuration to keep them.'});
+document.getElementById('exportSettings').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(getSettings(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='code-to-mp4-settings.json';a.click();URL.revokeObjectURL(a.href);statusEl.textContent='Settings JSON exported.'});
+try{const saved=JSON.parse(localStorage.getItem('codeToMp4StudioSettings')||'null');if(saved)setSettings(saved);else setSettings(defaults)}catch{setSettings(defaults)}
+</script>
+</body>
+</html>
